@@ -6,7 +6,7 @@ import { toast } from "react-hot-toast";
 import useRouter from "next/navigation";
 
 
-export default function ProfilePage() {
+export default function DashBoard() {
 
     const [data, setData] = useState("nothing");
 
