@@ -17,6 +17,7 @@
 }
 
 body {
-  color: rgb(var(--foreground-rgb));
-  background: skyblue;
+  background-color: #7c9fe3;
+  color: white;
+
 }

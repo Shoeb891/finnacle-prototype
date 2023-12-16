@@ -1,37 +1,9 @@
 "use client"
-import Chart from "@/components/Chart";
 import { useEffect, useState } from "react";
-
-const HighLowIndicator = ({ currentPrice, high, low }) => {
-  const [green, setGreen] = useState();
-
-  useEffect(() => {
-    let total = high - low;
-    let greenZone = ((high - currentPrice) * 100) / total;
-    setGreen(Math.ceil(greenZone));
-  }, [currentPrice, high, low]);
-
-  return (
-    <>
-      <span
-        className="bg-red h-1.5 rounded-l-lg w-[50%]"
-        style={{ width: `${100 - green}%` }}
-      >
-        &nbsp;
-      </span>
-      <span
-        className="bg-green h-1.5 rounded-r-lg w-[50%]"
-        style={{ width: `${green}%` }}
-      >
-        &nbsp;
-      </span>
-    </>
-  );
-};
 
 export default function CryptoDetails({ params }: any) {
   const [coinData, setCoinData] = useState(); // Initialize state with an empty object
-  let currency = 'inr'
+  let currency = 'usd'
   const getCoinData = async (coinId) => {
     try {
       const data = await fetch(
@@ -61,7 +33,7 @@ export default function CryptoDetails({ params }: any) {
         
       >
         <div
-          className="w-[65%] h-[75%] bg-gray-300 bg-opacity-75 rounded-lg text-neutral-950 relative"
+          className="w-[65%] h-[75%] bg-gray-300 bg-opacity-75 rounded-lg text-white relative"
         >
           {coinData ? (
             <div className="flex items-center justify-between h-full w-full p-4">
@@ -86,7 +58,7 @@ export default function CryptoDetails({ params }: any) {
                 <div className="flex w-full mt-6">
                   <div className="flex flex-col w-full">
                     <div className="flex justify-between">
-                      <span className="text-sm capitalize text-gray-600">
+                      <span className="text-sm capitalize text-gray-100">
                         Price
                       </span>
                       <div
@@ -94,7 +66,7 @@ export default function CryptoDetails({ params }: any) {
           rounded uppercase bg-opacity-25
           ${coinData.market_data.price_change_percentage_24h > 0
                             ? "bg-green text-green"
-                            : "bg-red text-gray-600"
+                            : "bg-red text-red"
                           }
           `}
                       >
@@ -134,7 +106,7 @@ export default function CryptoDetails({ params }: any) {
 
                 <div className="flex w-full mt-4 justify-between">
                   <div className="flex flex-col">
-                    <span className="text-sm capitalize text-gray-600">
+                    <span className="text-sm capitalize text-gray-100">
                       Market Cap
                     </span>
                     <h2 className="text-base font-bold">
@@ -146,7 +118,7 @@ export default function CryptoDetails({ params }: any) {
                     </h2>
                   </div>
                   <div className="flex flex-col">
-                    <span className="text-sm capitalize text-gray-600">
+                    <span className="text-sm capitalize text-gray-100">
                       fully diluted valuation
                     </span>
                     <h2 className="text-base font-bold">
@@ -162,7 +134,7 @@ export default function CryptoDetails({ params }: any) {
                 </div>
 
                 <div className="flex flex-col w-full mt-4 justify-between">
-                  <span className="text-sm capitalize text-gray-600">
+                  <span className="text-sm capitalize text-gray-100">
                     total volume
                   </span>
                   <h2 className="text-base font-bold">
@@ -175,16 +147,16 @@ export default function CryptoDetails({ params }: any) {
                 </div>
 
                 <div className="flex w-full mt-4 justify-between">
-                  <HighLowIndicator
+                  {/* <HighLowIndicator
                     currentPrice={coinData.market_data.current_price[currency]}
                     high={coinData.market_data.high_24h[currency]}
                     low={coinData.market_data.low_24h[currency]}
-                  />
+                  /> */}
                 </div>
 
                 <div className="flex w-full mt-4 justify-between">
                   <div className="flex flex-col">
-                    <span className="text-sm capitalize text-gray-600">
+                    <span className="text-sm capitalize text-gray-100">
                       Low 24H
                     </span>
                     <h2 className="text-base font-bold">
@@ -196,7 +168,7 @@ export default function CryptoDetails({ params }: any) {
                     </h2>
                   </div>
                   <div className="flex flex-col">
-                    <span className="text-sm capitalize text-gray-600">
+                    <span className="text-sm capitalize text-gray-100">
                       high 24H
                     </span>
                     <h2 className="text-base font-bold">
@@ -211,7 +183,7 @@ export default function CryptoDetails({ params }: any) {
 
                 <div className="flex w-full mt-4 justify-between">
                   <div className="flex flex-col">
-                    <span className="text-sm capitalize text-gray-600">
+                    <span className="text-sm capitalize text-gray-100">
                       max supply
                     </span>
                     <h2 className="text-base font-bold">
@@ -223,7 +195,7 @@ export default function CryptoDetails({ params }: any) {
                     </h2>
                   </div>
                   <div className="flex flex-col">
-                    <span className="text-sm capitalize text-gray-600">
+                    <span className="text-sm capitalize text-gray-100">
                       circulating supply
                     </span>
                     <h2 className="text-base font-bold">
@@ -241,7 +213,7 @@ export default function CryptoDetails({ params }: any) {
                     <a
                       target={"_blank"}
                       rel="noreferrer"
-                      className="text-sm bg-gray-200 text-gray-600 px-1.5 py-0.5 my-1 rounded"
+                      className="text-sm bg-gray-200 text-gray-100 px-1.5 py-0.5 my-1 rounded"
                       href={coinData?.links?.homepage[0]}
                     >
                       {coinData?.links?.homepage[0].substring(0, 30)}
@@ -249,7 +221,7 @@ export default function CryptoDetails({ params }: any) {
                     <a
                       target={"_blank"}
                       rel="noreferrer"
-                      className="text-sm bg-gray-200 text-gray-600 px-1.5 py-0.5 my-1 rounded"
+                      className="text-sm bg-gray-200 text-gray-100 px-1.5 py-0.5 my-1 rounded"
                       href={coinData?.links?.blockchain_site[0]}
                     >
                       {coinData?.links?.blockchain_site[0].substring(0, 30)}
@@ -259,7 +231,7 @@ export default function CryptoDetails({ params }: any) {
                       <a
                         target={"_blank"}
                         rel="noreferrer"
-                        className="text-sm bg-gray-200 text-gray-600 px-1.5 py-0.5 my-1 rounded"
+                        className="text-sm bg-gray-200 text-gray-100 px-1.5 py-0.5 my-1 rounded"
                         href={coinData?.links?.official_forum_url[0]}
                       >
                         {coinData?.links?.official_forum_url[0].substring(0, 30)}
@@ -268,7 +240,7 @@ export default function CryptoDetails({ params }: any) {
                   </div>
 
                   <div className="flex flex-col content-start">
-                    <span className="text-sm capitalize text-gray-600">
+                    <span className="text-sm capitalize text-gray-100">
                       sentiment
                     </span>
                     <div className="flex justify-between">
@@ -301,7 +273,7 @@ export default function CryptoDetails({ params }: any) {
                       <div
                         className={`text-sm px-1 ml-2 my-1 font-medium flex items-center
           rounded uppercase bg-opacity-25
-           bg-red text-gray-600
+           bg-red text-red
           `}
                       >
                         <span>
@@ -329,25 +301,25 @@ export default function CryptoDetails({ params }: any) {
                 </div>
               </div>
               <div className="flex flex-col w-[55%] h-full pl-3 ">
-                <Chart id={coinData.id} />
+                {/* <Chart id={data.id} /> */}
 
                 <div className="flex flex-col mt-4">
-                  <h3 className="text-neutral-950 py-1">
-                    <span className="text-gray-600 capitalize mr-1">
+                  <h3 className="text-white py-1">
+                    <span className="text-gray-100 capitalize mr-1">
                       market cap rank:{" "}
                     </span>{" "}
                     {coinData.market_cap_rank}{" "}
                   </h3>
 
-                  <h3 className="text-neutral-950 py-1">
-                    <span className="text-gray-600 capitalize mr-1">
+                  <h3 className="text-white py-1">
+                    <span className="text-gray-100 capitalize mr-1">
                       coinGecko rank:{" "}
                     </span>{" "}
                     {coinData.coingecko_rank}{" "}
                   </h3>
 
-                  <h3 className="text-neutral-950 py-1">
-                    <span className="text-gray-600 capitalize mr-1">
+                  <h3 className="text-white py-1">
+                    <span className="text-gray-100 capitalize mr-1">
                       coinGecko score:{" "}
                     </span>{" "}
                     {coinData.coingecko_score}{" "}
