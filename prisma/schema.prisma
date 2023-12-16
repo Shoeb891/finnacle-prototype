@@ -32,3 +32,5 @@ model Expense {
   categoryId    Int?
   @@index([id])
 }
+
+
