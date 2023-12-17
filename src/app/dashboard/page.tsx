@@ -25,13 +25,12 @@ export default function DashBoard() {
       const res = await axios.get("/api/users/getUser");
       console.log(res.data);
       setData(res.data.data.id);
-    } catch (error) { }
+    } catch (error) {}
   };
 
   return (
     <div className="flex flex-row items-center justify-evenly min-h-screen py-2">
-      <div className="">
-      </div>
+      <div className=""></div>
       <div>
         <p>Currently logged user id: {data}</p>
 

@@ -2,10 +2,9 @@ import Link from "next/link";
 
 export default function Home() {
   return (
-    <div className="flex flex-col items-center ">
-
-      <h1 className="text-7xl font-bold mt-20 mb-20 font-mono 	">
-        Welcome To Finnacle!🔥
+    <div className="flex flex-col items-center">
+      <h1 className="text-[45px] font-bold mt-20 mb-20 font-sans">
+        Welcome To Finnacle!
       </h1>
 
       <Link href="/signin">
@@ -19,7 +18,6 @@ export default function Home() {
           Sign Up
         </button>
       </Link>
-
-    </div >
-  )
+    </div>
+  );
 }
