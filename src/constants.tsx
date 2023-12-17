@@ -1,44 +1,53 @@
-import { Icon } from '@iconify/react';
+import { Icon } from "@iconify/react";
 
-import { SideNavItem } from './types';
+import { SideNavItem } from "./types";
 
 export const SIDENAV_ITEMS: SideNavItem[] = [
-    {
-        title: 'Home',
-        path: '/',
-        icon: <Icon icon="lucide:home" width="24" height="24" />,
-    },
-    {
-        title: 'Crypto',
-        path: '/crypto',
-        icon: <Icon icon="lucide:folder" width="24" height="24" />,
-        submenu: true,
-        subMenuItems: [
-            { title: 'Cryptos', path: '/crypto' },
-            { title: 'Trending Cryptos', path: '/trending' },
-        ],
-    },
-    {
-        title: 'Stocks',
-        path: '/stocks',
-        icon: <Icon icon="lucide:mail" width="24" height="24" />,
-        submenu: true,
-        subMenuItems: [
-            { title: 'Best Stocks to buy', path: '/expense/expense' },
-        ],
-    },
-    {
-        title: 'Expenses',
-        path: '/expense',
-        icon: <Icon icon="lucide:settings" width="24" height="24" />,
-        submenu: true,
-        subMenuItems: [
-            { title: 'Track Expenses', path: '/expense/expense' },
-        ],
-    },
-    {
-        title: 'Help',
-        path: '/help',
-        icon: <Icon icon="lucide:help-circle" width="24" height="24" />,
-    },
+  {
+    title: "Home",
+    path: "/",
+    icon: <Icon icon="lucide:home" width="24" height="24" />,
+  },
+  {
+    title: "Budget",
+    path: "/budget",
+    icon: <Icon icon="carbon:piggy-bank" width="24" height="24" />,
+    submenu: true,
+    subMenuItems: [
+      { title: "Add Budget", path: "/budget/add" },
+      { title: "View Budget", path: "/budget/view" },
+    ],
+  },
+  {
+    title: "Crypto",
+    path: "/crypto",
+    icon: <Icon icon="mdi:bitcoin" width="24" height="24" />,
+    submenu: true,
+    subMenuItems: [
+      { title: "Cryptos", path: "/crypto" },
+      { title: "Trending Cryptos", path: "/trending" },
+    ],
+  },
+  {
+    title: "Stocks",
+    path: "/stocks",
+    icon: <Icon icon="emojione-v1:stock-chart" width="24" height="24" />,
+    submenu: true,
+    subMenuItems: [
+      { title: "Best Stocks to buy", path: "/stocks/best" },
+      { title: "Compare Stocks", path: "/" },
+    ],
+  },
+  {
+    title: "Expenses",
+    path: "/expense",
+    icon: <Icon icon="ph:money" width="24" height="24" />,
+    submenu: true,
+    subMenuItems: [{ title: "Track Expenses", path: "/expense/expense" }],
+  },
+  {
+    title: "Logout",
+    path: "/",
+    icon: <Icon icon="uil:exit" width="24" height="24" />,
+  },
 ];
