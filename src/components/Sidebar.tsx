@@ -18,6 +18,12 @@ const SideNav = () => {
     isUser = false;
   }
 
+  const exit = () => {
+    axios.get("/api/users/logout").then((res) => {
+      window.location.href = "/";
+    });
+  };
+
   return (
     <>
       {isUser && (

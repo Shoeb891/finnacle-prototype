@@ -21,11 +21,11 @@ const LogIn = () => {
       setLoading(true);
       const response = await axios.post("/api/users/signin", data);
       console.log("login success", response.data);
-    //   toast.success("login success");
-      window.location.href = "/dashboard";
+      //   toast.success("login success");
+      window.location.href = "/expense";
     } catch (error: any) {
       console.log("login failed", error.message);
-    //   toast.error(error.message);
+      //   toast.error(error.message);
     } finally {
       setLoading(false);
     }
@@ -96,9 +96,7 @@ const LogIn = () => {
           </div>
 
           <div>
-          <button type="submit">
-            Login
-            </button>
+            <button type="submit">Login</button>
             <div className=" py-3 text-sm">
               <Link
                 href="/signup"

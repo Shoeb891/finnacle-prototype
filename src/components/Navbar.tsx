@@ -37,7 +37,10 @@ const Navbar = () => {
         <div className="flex items-center justify-center">
           {/* <ThemeToggle className="mr-4" /> */}
           {isLoggedIn ? (
-            <UserAccNav />
+            <>
+              <ThemeToggle className="mr-4 bg-white" />
+              <UserAccNav />
+            </>
           ) : (
             <div className="flex flex-row">
               <ThemeToggle className="mr-4 bg-white" />

@@ -23,27 +23,21 @@ export const SIDENAV_ITEMS: SideNavItem[] = [
     path: "/crypto",
     icon: <Icon icon="mdi:bitcoin" width="24" height="24" />,
     submenu: true,
-    subMenuItems: [
-      { title: "Cryptos", path: "/crypto" },
-      { title: "Trending Cryptos", path: "/trending" },
-    ],
+    subMenuItems: [{ title: "Cryptos", path: "/crypto" }],
   },
   {
     title: "Stocks",
     path: "/stocks",
     icon: <Icon icon="emojione-v1:stock-chart" width="24" height="24" />,
     submenu: true,
-    subMenuItems: [
-      { title: "Best Stocks to buy", path: "/stocks/best" },
-      { title: "Compare Stocks", path: "/" },
-    ],
+    subMenuItems: [{ title: "Predicted Stocks", path: "/stocks/best" }],
   },
   {
     title: "Expenses",
     path: "/expense",
     icon: <Icon icon="ph:money" width="24" height="24" />,
     submenu: true,
-    subMenuItems: [{ title: "Track Expenses", path: "/expense/expense" }],
+    subMenuItems: [{ title: "Track Expenses", path: "/expense" }],
   },
   {
     title: "Logout",
